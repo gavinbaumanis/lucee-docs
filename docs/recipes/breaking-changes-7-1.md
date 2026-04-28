@@ -25,6 +25,29 @@ Be aware of these changes when migrating your applications to ensure smooth comp
 - [[breaking-changes-6-1-to-6-2]]
 - [[breaking-changes-6-2-to-7-0]]
 
+## Struct Key Ordering Changes
+
+The internal ordering of keys in unordered (non-linked) structs has changed in Lucee 7.1. This means that `serializeJSON()` output for regular structs may produce keys in a different order than previous versions.
+
+Any code that relied on unordered structs having a consistent key order may break (e.g. comparing serialized JSON strings, iterating keys, or generating cached markup).
+
+**Example:**
+
+```cfc
+var s = { "data": {}, "includes": ["a.js"], "adhoc": {} };
+// 7.0: {"data":{},"includes":["a.js"],"adhoc":{}}
+// 7.1: {"includes":["a.js"],"adhoc":{},"data":{}}
+```
+
+**Workarounds:**
+
+- Use `StructNew("ordered")` or `StructNew("linked")` if key order matters
+- Compare deserialized structs instead of raw JSON strings
+- Use `structSort()` or sorted keys when generating deterministic output
+- As a diagnostic, the `lucee.concurrent.map.impl=legacy` flag temporarily restores pre-7.1 ordering — flip it on to confirm whether breakage is genuinely an ordering-assumption bug in your code. See [[concurrent-map-legacy-flag]].
+
+This change was made to improve struct performance ([LDEV-5098](https://luceeserver.atlassian.net/browse/LDEV-5098)).
+
 ## QoQ SQL String Concatenation with NULL values
 
 Previously, the HSQLDB-backed Query of Queries engine propagated NULL during string concatenation (like MySQL's `CONCAT()`) — `'foo' || NULL` would return `NULL`. This caused rows with NULL values to be silently excluded from query results when using `||` or `CONCAT()` in WHERE clauses.

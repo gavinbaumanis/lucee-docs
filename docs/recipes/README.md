@@ -64,13 +64,17 @@ A guide to breaking changes introduced in Lucee between version 7.0 and 7.1
 
 How to flush specific cached queries, functions, and HTTP results in Lucee without clearing entire caches.
 
-## [Cache a Query for the current request](/docs/recipes/cached-within-request.md)
+## [Using cachedWithin](/docs/recipes/cached-within-request.md)
 
-Cache a Query for the current request in Lucee.
+How to use the cachedWithin attribute on queries, functions, cfhttp, and cffile in Lucee.
 
 ## [Caches defined in Application.cfc](/docs/recipes/caches-defined-in-application-cfc.md)
 
 How to add per-application caches via Application.cfc in Lucee.
+
+## [Getting Started with Caching](/docs/recipes/caching-getting-started.md)
+
+An introduction to Lucee's cache layer — what it is, why you'd use it, and how to get started with the cache BIFs.
 
 ## [Untitled](/docs/recipes/cfschedule-bulk-update.md)
 
@@ -91,6 +95,10 @@ Get the Java class of a component that implements a Java interface.
 ## [Component Mappings](/docs/recipes/component-mappings.md)
 
 How to define and use component mappings in Lucee.
+
+## [Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`](/docs/recipes/concurrent-map-legacy-flag.md)
+
+The `lucee.concurrent.map.impl=legacy` flag temporarily restores the pre-7.1 struct iteration order, used as a diagnostic to confirm whether a 7.1 regression is an ordering-assumption bug in your code.
 
 ## [Configure Lucee Programmatically](/docs/recipes/configuration-administrator-cfc.md)
 
@@ -272,6 +280,10 @@ Learn how to write CFML code directly in a function or a closure with Java types
 
 Guide on using Java libraries in Lucee 6.2 with Maven and import
 
+## [Java Regex Engine](/docs/recipes/java-regex-engine.md)
+
+How to switch from the legacy Apache ORO regex engine to Java's built-in regex engine for better performance and modern features.
+
 ## [Java Scripting with Lucee](/docs/recipes/java-scripting.md)
 
 Documentation for using Lucee as a scripting engine in Java applications via JSR-223
@@ -298,7 +310,7 @@ How to use lazy queries
 
 ## [List existing Cache Connections](/docs/recipes/list-existing-cache-conn.md)
 
-List existing Cache Connections available in Lucee.
+How to list and check for cache connections at runtime in Lucee.
 
 ## [Lucee 7 Loader API Changes](/docs/recipes/loader-api-changes-7.md)
 
@@ -619,6 +631,10 @@ Lucee supports the following virtual file systems: ram, file, s3, http, https, z
 ## [Warmup](/docs/recipes/warmup.md)
 
 Docker warmup and eager config loading for fail-fast validation in Lucee
+
+## [WebSocket Client Extension](/docs/recipes/websocket-client-extension.md)
+
+WebSocket client for Lucee — connect to any WebSocket server from CFML
 
 ## [WebSocket Extension](/docs/recipes/websocket-extension.md)
 

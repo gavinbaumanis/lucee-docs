@@ -102,3 +102,54 @@ RUN /usr/local/tomcat/bin/prewarm.sh 6.1
 
 You can find the `prewarm.sh` file [here](https://github.com/lucee/lucee-dockerfiles).
 When the Docker container is built, the `onBuild` function will execute, performing any tasks you've defined in the function.
+
+## Warming the Maven Cache at Build Time
+
+> **Since 7.1.0.98** ([LDEV-6280](https://luceeserver.atlassian.net/browse/LDEV-6280))
+
+If your app uses [[maven|Maven-loaded Java libraries]], by default those jars are downloaded on first use at **runtime**. That's fine for dev, but in Docker you want the jars baked into the image — no network on container start, no first-request latency while POI downloads.
+
+Snapshot your `/mvn/` cache on a dev machine, commit the pom, rehydrate during the Docker build:
+
+```cfml
+// dev machine, after loading everything your app needs:
+fileWrite( "/app/pom.xml", mavenExport() );
+// commit /app/pom.xml
+```
+
+```cfml
+// Server.cfc in the image
+component {
+    public function onBuild() {
+        var q = mavenImport( "/app/pom.xml" );
+        systemOutput( "Resolved " & q.recordcount & " dependencies", true );
+    }
+}
+```
+
+Round-trip is exact — the pom lists every cached jar including classifiers. See [[function-mavenexport]] / [[function-mavenimport]].
+
+## Compiling a Mapping at Build Time
+
+Precompiling every `.cfm` / `.cfc` under a mapping bakes bytecode into the image so first-hit requests don't pay compile cost. It also surfaces syntax errors in code paths your tests don't reach.
+
+The `compileMapping` admin action does this. Against the web mapping `/`:
+
+```cfml
+component {
+    public function onBuild() {
+        admin
+            action="compileMapping"
+            type="web"
+            password=request.adminPassword
+            virtual="/"
+            stoponerror="false";
+    }
+}
+```
+
+- `type="web"` compiles under a specific web context; `type="server"` walks the server-level mappings.
+- `virtual="/"` is the mapping name — pass a specific virtual path (e.g. `/app`) to limit the scope.
+- `stoponerror="false"` logs compile errors and continues. Set `true` to fail the build on the first bad file.
+
+Same pattern as the [script-runner](https://github.com/lucee/script-runner) `-Dcompile=true` flag, which uses this exact admin action to smoke-test a webroot against a given Lucee version. See [[cfadmin-docs]] for the full list of admin actions.

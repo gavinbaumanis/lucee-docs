@@ -195,7 +195,7 @@
     "file": "breaking-changes-7-0.md",
     "title": "Breaking Changes between Lucee 6.2 and 7.0",
     "path": "/docs/recipes/breaking-changes-7-0.md",
-    "hash": "52c49d7323ba02678fe7732e90234c80",
+    "hash": "d53061f984849d3a6eb1ae2c5b2f9418",
     "keywords": [
       "breaking changes",
       "Lucee 6.2",
@@ -208,7 +208,7 @@
     "file": "breaking-changes-7-1.md",
     "title": "Breaking Changes between Lucee 7.0 and 7.1",
     "path": "/docs/recipes/breaking-changes-7-1.md",
-    "hash": "692e0f50efff61e2f94caa51556b0fb8",
+    "hash": "dba313247350cfe49064295207940588",
     "keywords": [
       "breaking changes",
       "Lucee 7.0",
@@ -221,7 +221,7 @@
     "file": "cache-invalidation-selective.md",
     "title": "Selective Cache Invalidation",
     "path": "/docs/recipes/cache-invalidation-selective.md",
-    "hash": "32de98cf76f32b3446071be458f3fcd7",
+    "hash": "0a71a1163b5462e2276dcb995d7e827c",
     "keywords": [
       "Cache",
       "cachedWithin",
@@ -236,22 +236,24 @@
   },
   {
     "file": "cached-within-request.md",
-    "title": "Cache a Query for the current request",
+    "title": "Using cachedWithin",
     "path": "/docs/recipes/cached-within-request.md",
-    "hash": "a72064347566fb4b3e21510ee9065f3e",
+    "hash": "b0c41eaf79aafd6bee9765f4c23bf562",
     "keywords": [
       "Cache",
       "Query",
       "Request cache",
       "cachedWithin",
-      "cfquery"
+      "cfquery",
+      "cfhttp",
+      "cffile"
     ]
   },
   {
     "file": "caches-defined-in-application-cfc.md",
     "title": "Caches defined in Application.cfc",
     "path": "/docs/recipes/caches-defined-in-application-cfc.md",
-    "hash": "23273ad42218693be3643684f70712fc",
+    "hash": "653d761e5c2f2b26d06584d0ec82a409",
     "keywords": [
       "Caches",
       "Application.cfc",
@@ -259,6 +261,23 @@
       "Cache connections",
       "Default caches",
       "Lucee"
+    ]
+  },
+  {
+    "file": "caching-getting-started.md",
+    "title": "Getting Started with Caching",
+    "path": "/docs/recipes/caching-getting-started.md",
+    "hash": "136c9f9bc9accffb13af153883a2a2f8",
+    "keywords": [
+      "Cache",
+      "cachePut",
+      "cacheGet",
+      "cacheClear",
+      "cacheDelete",
+      "RAM cache",
+      "Object cache",
+      "Application.cfc",
+      "Getting started"
     ]
   },
   {
@@ -320,6 +339,21 @@
       "CFCs",
       "Application.cfc",
       "Lucee archive"
+    ]
+  },
+  {
+    "file": "concurrent-map-legacy-flag.md",
+    "title": "Diagnosing struct iteration-order regressions on 7.1 with `lucee.concurrent.map.impl=legacy`",
+    "path": "/docs/recipes/concurrent-map-legacy-flag.md",
+    "hash": "85f7818537a2057c96d183ad2762b2f0",
+    "keywords": [
+      "ConcurrentHashMap",
+      "struct",
+      "lucee.concurrent.map.impl",
+      "legacy",
+      "struct ordering",
+      "LDEV-5098",
+      "LDEV-6288"
     ]
   },
   {
@@ -391,7 +425,7 @@
     "file": "csv-processing.md",
     "title": "CSV Processing in Lucee 7",
     "path": "/docs/recipes/csv-processing.md",
-    "hash": "29904a460f0d30c67723e2ce136e3664",
+    "hash": "4cf4ef1d4c9da606658cb407497313e8",
     "keywords": [
       "CSV",
       "Apache Commons",
@@ -473,7 +507,7 @@
     "file": "docker-onbuild.md",
     "title": "onBuild Function in Server.cfc",
     "path": "/docs/recipes/docker-onbuild.md",
-    "hash": "1742d2e9b0af0c9cf960d1d8c5ccc7b3",
+    "hash": "6a01975f2bff7b986b1b2190623bf732",
     "keywords": [
       "onBuild",
       "Server.cfc",
@@ -517,7 +551,7 @@
     "file": "dynamodb-cache-extension.md",
     "title": "DynamoDB Cache Extension",
     "path": "/docs/recipes/dynamodb-cache-extension.md",
-    "hash": "af975d7d9186752b8f5af98708d37e48",
+    "hash": "297b080280d8a0c1bcc0ee6c114fc79c",
     "keywords": [
       "DynamoDB",
       "Cache",
@@ -547,7 +581,7 @@
     "file": "environment-variables-system-properties.md",
     "title": "Environment Variables / System Properties for Lucee",
     "path": "/docs/recipes/environment-variables-system-properties.md",
-    "hash": "b26c638f77410fdfe81b1e1823781ba5",
+    "hash": "f8ace4aab67e9edd4211fb3227232902",
     "keywords": [
       "Environment",
       "Environment Variables",
@@ -600,7 +634,7 @@
     "file": "excel-processing.md",
     "title": "Excel Processing in Lucee 7",
     "path": "/docs/recipes/excel-processing.md",
-    "hash": "d8abe817a951a5e2d0e3c2a4646ea306",
+    "hash": "adeb2182ce6ff3f5b535676322fdff34",
     "keywords": [
       "Excel",
       "Apache POI",
@@ -802,7 +836,7 @@
     "file": "heap-dumps.md",
     "title": "Creating Heap Dumps in Lucee",
     "path": "/docs/recipes/heap-dumps.md",
-    "hash": "83adfafe43870f8cad27359b134d6b82",
+    "hash": "09a26e040cc858891b21b6527802b45e",
     "keywords": [
       "Heap Dump",
       "Memory",
@@ -884,7 +918,7 @@
     "file": "java-class-interaction.md",
     "title": "Java Class Interaction",
     "path": "/docs/recipes/java-class-interaction.md",
-    "hash": "55c4d203e155a24ed371e3eef149761c",
+    "hash": "cd919c0f50b85b3789d2d1e79e3373fe",
     "keywords": [
       "Java",
       "Classes",
@@ -925,7 +959,7 @@
     "file": "java-libraries.md",
     "title": "Interacting with Java Libraries",
     "path": "/docs/recipes/java-libraries.md",
-    "hash": "794707c016506820f6c710de9f20bfe2",
+    "hash": "91b12a1f0aa29fc2bba79d2b52166d75",
     "keywords": [
       "java",
       "maven",
@@ -933,6 +967,24 @@
       "Lucee",
       "libraries",
       "new operator"
+    ]
+  },
+  {
+    "file": "java-regex-engine.md",
+    "title": "Java Regex Engine",
+    "path": "/docs/recipes/java-regex-engine.md",
+    "hash": "fd8a17a3dcdb033930c3ec6fc1f9e5c1",
+    "keywords": [
+      "regex",
+      "regular expressions",
+      "Java regex",
+      "Apache ORO",
+      "performance",
+      "Application.cfc",
+      "REFind",
+      "REReplace",
+      "REMatch",
+      "migration"
     ]
   },
   {
@@ -955,7 +1007,7 @@
     "file": "java-settings.md",
     "title": "Java Settings",
     "path": "/docs/recipes/java-settings.md",
-    "hash": "99b9e154cb3c694b8c41685de96fce88",
+    "hash": "830f112bb0a9041668559d6b4961bb37",
     "keywords": [
       "Java settings",
       "Application.cfc",
@@ -1023,13 +1075,12 @@
     "file": "list-existing-cache-conn.md",
     "title": "List existing Cache Connections",
     "path": "/docs/recipes/list-existing-cache-conn.md",
-    "hash": "7ebe84bae9d103f274375f97ae95ee9c",
+    "hash": "2f82a0410aa153e5b684c49a48c14b1c",
     "keywords": [
       "Cache",
       "Cache connections",
       "List cache",
-      "hasCache",
-      "cacheNames",
+      "getApplicationSettings",
       "Lucee"
     ]
   },
@@ -1199,7 +1250,7 @@
     "file": "maven-based-extensions.md",
     "title": "Maven Based Extensions",
     "path": "/docs/recipes/maven-based-extensions.md",
-    "hash": "8e803b456c2a8971e87d6a542313ea76",
+    "hash": "acafbc3551af1d22b60cbeedcbb908d2",
     "keywords": [
       "extension",
       "Maven",
@@ -1218,7 +1269,7 @@
     "file": "maven.md",
     "title": "Loading Java Libraries with Maven",
     "path": "/docs/recipes/maven.md",
-    "hash": "b24c96d5def4e6b4186058f187640637",
+    "hash": "34a5b3c02861a57903f36cbbef0ac648",
     "keywords": [
       "Maven",
       "Java",
@@ -1348,7 +1399,7 @@
     "file": "orm-logging.md",
     "title": "ORM - Logging and Debugging",
     "path": "/docs/recipes/orm-logging.md",
-    "hash": "5b653c495ab4f8418a48c2cd4f1d1b60",
+    "hash": "4f28917eddc3df72db5683dd3cd4def0",
     "keywords": []
   },
   {
@@ -1572,7 +1623,7 @@
     "file": "recommended-settings.md",
     "title": "Recommended Settings",
     "path": "/docs/recipes/recommended-settings.md",
-    "hash": "942660bb0a67ca52df8e6ec9e17794a2",
+    "hash": "0b43f41907677c1e360750b7640a939b",
     "keywords": [
       "settings",
       "performance",
@@ -1856,7 +1907,7 @@
     "file": "step-debugger.md",
     "title": "Step Debugging Lucee with Extension Debugger",
     "path": "/docs/recipes/step-debugger.md",
-    "hash": "37e13e5c53f84061c5fd00bc4da3c316",
+    "hash": "5d17fa3135faa5b1d428cc1f47b0acb6",
     "keywords": [
       "debugger",
       "DAP",
@@ -2097,10 +2148,22 @@
     ]
   },
   {
+    "file": "websocket-client-extension.md",
+    "title": "WebSocket Client Extension",
+    "path": "/docs/recipes/websocket-client-extension.md",
+    "hash": "c3b231f09264ae5dde9ab5202d3dd8a9",
+    "keywords": [
+      "Lucee",
+      "Extension",
+      "WebSocket",
+      "Client"
+    ]
+  },
+  {
     "file": "websocket-extension.md",
     "title": "WebSocket Extension",
     "path": "/docs/recipes/websocket-extension.md",
-    "hash": "2417e0adcd43654ea917acfe8014dfb5",
+    "hash": "7224832f451e9b31d9d17c81a4c1909e",
     "keywords": [
       "Lucee",
       "Extension"
@@ -2139,7 +2202,7 @@
     "file": "yaml-processing.md",
     "title": "YAML Processing in Lucee 7",
     "path": "/docs/recipes/yaml-processing.md",
-    "hash": "ea74a925eef4ae78701b172787ae1b35",
+    "hash": "f82bb55a14f210b797b7375fc26b7228",
     "keywords": [
       "YAML",
       "SnakeYAML",
