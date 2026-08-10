@@ -19,6 +19,7 @@ Lucee 7.1 introduces a native step debugger for VS Code, a wave of performance i
 - **QoQ Improvements**: Case sensitivity options, engine selection, HSQLDB connection pooling
 - **Maven Extensions**: Extension tags and functions can now use Maven coordinates
 - **SecretProvider API**: Extended with set, remove, and list operations
+- **REST Routing**: Cross-CFC dispatch now uses JAX-RS-style specificity scoring instead of disk-iteration order — see [[rest-services]]
 
 ## Native Step Debugger
 
@@ -110,6 +111,12 @@ QoQ queries that fall back to HSQLDB now use a pool of isolated database instanc
 - Tunable via system property `lucee.qoq.hsqldb.poolsize`
 
 [LDEV-5992](https://luceeserver.atlassian.net/browse/LDEV-5992)
+
+### HSQLDB ORDER BY null position aligned with native QoQ
+
+Nulls now sort to the end of `ORDER BY ... DESC` in HSQLDB (and stay first in `ASC`), matching native QoQ and Adobe ColdFusion. Tunable via `lucee.qoq.hsqldb.orderBy.nullsLastInDesc`. See [[breaking-changes-7-0-to-7-1]].
+
+[LDEV-6311](https://luceeserver.atlassian.net/browse/LDEV-6311)
 
 ### SQL Functions Reference
 

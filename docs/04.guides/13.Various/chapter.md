@@ -17,8 +17,6 @@ This is the temporary location where all the new links will be added.
 
 [[configuration-directory-placeholders]]
 
-[[configuration-flex]]
-
 [[configuration-web-xml]]
 
 [[contributing-contributors-agreement]]
@@ -45,7 +43,7 @@ This is the temporary location where all the new links will be added.
 
 [[about-lucee-how-to-get-help]]
 
-[[orm-start]]
+[[orm-getting-started]]
 
 [[query-of-queries]]
 

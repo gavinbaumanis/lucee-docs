@@ -163,6 +163,15 @@ allStates = java:Thread$State::values();
 dump( allStates );
 ```
 
+To specify an enum using a variable, use square bracket notation:
+
+```javascript
+import java.util.concurrent.TimeUnit;
+selectedTimeUnit = "MINUTES";
+selectedEnumObject = TimeUnit::[ selectedTimeUnit ];
+dump( selectedEnumObject.name() ); // MINUTES
+```
+
 ## Class Reflection (Advanced)
 
 Reflection lets you inspect classes at runtime - useful for debugging, building dynamic code, or understanding unfamiliar Java libraries.

@@ -6,6 +6,16 @@
     "orm"
   ],
   "description": "Common ORM pitfalls, error messages decoded, performance tips, and design patterns for Lucee ORM",
+  "keywords": [
+    "ORM",
+    "troubleshooting",
+    "performance",
+    "N+1",
+    "lazy loading",
+    "error messages",
+    "design patterns",
+    "session traps"
+  ],
   "related": [
     "orm-configuration",
     "orm-session-and-transactions",
@@ -256,6 +266,31 @@ Entity CFC not found during HQL or `entityLoad()`.
 - Is `persistent="true"` set on the CFC?
 - Is the CFC in a directory listed in `cfclocation`?
 - Does the `entityname` match what you're using in queries?
+
+### "Entity Name [X] is ambigous"
+
+Two CFCs are competing to register the same entity name. Two scenarios:
+
+**Same file reached via overlapping `cfclocation` entries** (e.g. parent and child directory both listed). Hibernate extension 5.6.15.16+ silently dedupes these by canonical file path, matching ACF ([LDEV-1697](https://luceeserver.atlassian.net/browse/LDEV-1697)) — so this no longer errors. On older versions, remove the redundant entry.
+
+```cfml
+// Was a problem before 5.6.15.16, fine now
+this.ormSettings = {
+    cfclocation: [ "/models", "/models/legacy" ]  // /models scans /legacy too
+};
+```
+
+**Two genuinely different files sharing an `entityname`** — both engines correctly raise this. Rename one of the entities, or set distinct `entityname` attributes:
+
+```cfml
+// /models/User.cfc
+component persistent="true" entityname="User" { ... }
+
+// /models/admin/User.cfc — give it a different entityname
+component persistent="true" entityname="AdminUser" { ... }
+```
+
+The error message reports both file paths; if they're identical, you have the overlap case (upgrade), and if they're different files, it's the entity-name collision case.
 
 ### "MappingException: collection was not an association"
 

@@ -6,6 +6,17 @@
     "orm"
   ],
   "description": "Complete guide to ORM settings, schema management, naming strategies, and custom Hibernate mappings in Lucee",
+  "keywords": [
+    "ORM",
+    "ormSettings",
+    "Hibernate",
+    "schema management",
+    "dbCreate",
+    "naming strategy",
+    "Application.cfc",
+    "cfcMapping",
+    "custom mappings"
+  ],
   "related": [
     "orm-getting-started",
     "orm-entity-mapping",
@@ -101,6 +112,10 @@ this.ormSettings = {
 ```
 
 If omitted, Lucee scans the entire application root — which works fine for small apps but slows startup on larger codebases.
+
+Overlapping entries (e.g. parent and child directory both listed) are safe — the same CFC won't be registered twice. Hibernate extension 5.6.15.16+ dedupes by canonical file path, matching ACF ([LDEV-1697](https://luceeserver.atlassian.net/browse/LDEV-1697)). Two _different_ files sharing an `entityname` will still raise an ambiguity error.
+
+Recursion ignores nested `Application.cfc` files — any persistent CFCs in subdirectories are scooped into the parent application's ORM, even if those subdirs declare their own application. ACF behaves the same way. Avoid pointing `cfclocation` at directories that contain unrelated apps.
 
 ### dialect
 
